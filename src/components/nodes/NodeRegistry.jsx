@@ -104,15 +104,50 @@ const NodeRegistry = {
             }
         ]
     },
-    output: {
-        id: 'output',
-        type: 'output',
+    input: {
+        id: 'input',
+        type: 'input',
         selected: false,
-        title: "Output",
-        nodeComponent: 'OutputNode',
+        title: "Input",
+        nodeComponent: 'InputNode',
+        description: 'Input node for accepting user data',
+        defaultData: {
+            inputName: 'input_1',
+            inputType: 'Text',
+            label: 'Input'
+        },
+        handles: {
+            source: {
+                position: 'Right',
+                id: '{id}-value'
+            }
+        },
+        fields: [
+            {
+                type: "text",
+                name: "inputName",
+                label: "Name",
+                defaultValue: "input_1",
+                placeholder: "Enter input name"
+            },
+            {
+                type: "select",
+                name: "inputType",
+                label: "Type",
+                defaultValue: "Text",
+                options: ["Text", "File"]
+            }
+        ]
+    },
+    output: {
+        id: 'outputT',
+        type: 'outputT',
+        selected: false,
+        title: "OutputT",
+        nodeComponent: 'OutputTNode',
         description: 'Output node for displaying results',
         defaultData: {
-            outputName: 'output_1',
+            outputName: 'outputT_1',
             label: 'Output'
         },
         handles: {
@@ -132,11 +167,11 @@ const NodeRegistry = {
         ]
     },
     llm: {
-        id: 'llm',
-        type: 'llm',
+        id: 'OutputLLM',
+        type: 'OutputLLM',
         selected: false,
-        title: "LLM",
-        nodeComponent: 'LLMNode',
+        title: "OutputLLM",
+        nodeComponent: 'OutputLLMNode',
         description: 'LLM processing node',
         defaultData: {
             model: 'gpt-3.5-turbo',

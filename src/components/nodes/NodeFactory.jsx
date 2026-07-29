@@ -19,7 +19,7 @@ const NodeFactory = ({ id, data, selected, type }) => {
             </div>
         );
     }
-
+    
     return (
         <BaseNode
             id={id}
