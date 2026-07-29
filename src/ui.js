@@ -6,25 +6,23 @@ import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/inputNode';
-import { LLMNode } from './nodes/llmNode';
-import { OutputNode } from './nodes/outputNode';
-import { TextNode } from './nodes/textNode';
-import { Namenode } from './nodes/nameNode';
-import { Emailnode } from './nodes/emailNode';
+
+import BaseNode from '../src/components/nodes/Basenode.jsx';
+import NodeRegistry from '../src/components/nodes/NodeRegistry.jsx';
 
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
-const nodeTypes = {
-  customInput: InputNode,
-  llm: LLMNode,
-  customOutput: OutputNode,
-  text: TextNode,
-  name: Namenode,
-  email: Emailnode
-};
+
+
+const nodeTypes = {};
+Object.keys(NodeRegistry).forEach(key => {
+  const config = NodeRegistry[key];
+  nodeTypes[key] = (props) => {
+    return <BaseNode {...props} config={config} />;
+  };
+});
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -50,8 +48,15 @@ export const PipelineUI = () => {
   } = useStore(selector, shallow);
 
   const getInitNodeData = (nodeID, type) => {
-    let nodeData = { id: nodeID, nodeType: `${type}` };
-    return nodeData;
+    const config = NodeRegistry[type];
+    if (config) {
+      return {
+        id: nodeID,
+        nodeType: type,
+        ...config.defaultData
+      };
+    }
+    return { id: nodeID, nodeType: type };
   }
 
   const onDrop = useCallback(
@@ -63,7 +68,6 @@ export const PipelineUI = () => {
         const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
         const type = appData?.nodeType;
 
-        // check if the dropped element is valid
         if (typeof type === 'undefined' || !type) {
           return;
         }
@@ -93,8 +97,8 @@ export const PipelineUI = () => {
   }, []);
 
   return (
-    <>
-      <div ref={reactFlowWrapper} style={{ width: '100wv', height: '70vh' }}>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <div ref={reactFlowWrapper} style={{ width: '100%', height: '100%' }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -114,6 +118,6 @@ export const PipelineUI = () => {
           <MiniMap />
         </ReactFlow>
       </div>
-    </>
-  )
+    </div>
+  );
 }

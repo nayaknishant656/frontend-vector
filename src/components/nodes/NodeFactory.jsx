@@ -1,6 +1,6 @@
 import React from "react";
-import BaseNode from "./components/nodes/BaseNode";
-import NodeRegistry from "./nodes/NodeRegistry";
+import BaseNode from "./Basenode.jsx";
+import NodeRegistry from "./NodeRegistry.jsx";
 
 const NodeFactory = ({ id, data, selected, type }) => {
     const config = NodeRegistry[type];
