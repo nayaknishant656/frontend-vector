@@ -1,3 +1,39 @@
+export const nishant = {
+    id: 'nishant',
+    type: 'nishant',
+    selected: false,
+    title: "Nishant",
+    nodeComponent: 'NishantNode',
+    description: 'Input node for accepting user data',
+    defaultData: {
+        inputName: 'input_1',
+        inputType: 'Text',
+        label: 'Input'
+    },
+    handles: {
+        source: {
+            position: 'Right',
+            id: 'input-value'
+        }
+    },
+    fields: [
+        {
+            type: "text",
+            name: "inputName",
+            label: "Name",
+            defaultValue: "input_1",
+            placeholder: "Enter input name"
+        },
+        {
+            type: "select",
+            name: "inputType",
+            label: "Type",
+            defaultValue: "Text",
+            options: ["Text", "File"]
+        }
+    ]
+};
+
 // inputConfig
 export const inputConfig = {
     id: 'input',
@@ -14,7 +50,7 @@ export const inputConfig = {
     handles: {
         source: {
             position: 'Right',
-            id: '{id}-value'
+            id: 'input-value'
         }
     },
     fields: [
@@ -50,7 +86,7 @@ export const outputConfig = {
     handles: {
         target: {
             position: 'Left',
-            id: '{id}-value'
+            id: 'output-value'
         }
     },
     fields: [
@@ -75,9 +111,9 @@ export const llmConfig = {
     defaultData: {
         model: 'gpt-3.5-turbo',
         temperature: 0.7,
-        maxTokens: 1000,
-        systemPrompt: 'You are a helpful assistant.',
-        label: 'LLM'
+        // maxTokens: 1000,
+        // systemPrompt: 'You are a helpful assistant.',
+        // label: 'LLM'
     },
     handles: {
         target: [
@@ -105,31 +141,31 @@ export const llmConfig = {
             defaultValue: "gpt-3.5-turbo",
             options: ["gpt-3.5-turbo", "gpt-4", "claude-3", "llama-2"]
         },
-        {
-            type: "range",
-            name: "temperature",
-            label: "Temperature",
-            defaultValue: 0.7,
-            min: 0,
-            max: 2,
-            step: 0.1
-        },
-        {
-            type: "number",
-            name: "maxTokens",
-            label: "Max Tokens",
-            defaultValue: 1000,
-            min: 1,
-            max: 4000
-        },
-        {
-            type: "textarea",
-            name: "systemPrompt",
-            label: "System Prompt",
-            defaultValue: "You are a helpful assistant.",
-            rows: 3,
-            placeholder: "Enter system prompt"
-        }
+        // {
+        //     type: "range",
+        //     name: "temperature",
+        //     label: "Temperature",
+        //     defaultValue: 0.7,
+        //     min: 0,
+        //     max: 2,
+        //     step: 0.1
+        // },
+        // {
+        //     type: "number",
+        //     name: "maxTokens",
+        //     label: "Max Tokens",
+        //     defaultValue: 1000,
+        //     min: 1,
+        //     max: 4000
+        // },
+        // {
+        //     type: "textarea",
+        //     name: "systemPrompt",
+        //     label: "System Prompt",
+        //     defaultValue: "You are a helpful assistant.",
+        //     rows: 3,
+        //     placeholder: "Enter system prompt"
+        // }
     ]
 };
 
@@ -198,43 +234,43 @@ export const apiConfig = {
             defaultValue: "GET",
             options: ["GET", "POST", "PUT", "DELETE", "PATCH"]
         },
-        {
-            type: "text",
-            name: "url",
-            label: "Endpoint",
-            placeholder: "https://api.example.com/endpoint",
-            defaultValue: "https://api.example.com/endpoint"
-        },
-        {
-            type: "textarea",
-            name: "body",
-            label: "Request Body",
-            rows: 5,
-            placeholder: '{\n  "key": "value"\n}',
-            defaultValue: "{}"
-        },
-        {
-            type: "checkbox",
-            name: "cache",
-            label: "Enable Cache",
-            defaultValue: true
-        },
-        {
-            type: "number",
-            name: "timeout",
-            label: "Timeout (ms)",
-            defaultValue: 30000,
-            min: 1000,
-            max: 120000
-        },
-        {
-            type: "textarea",
-            name: "headers",
-            label: "Headers",
-            rows: 3,
-            placeholder: '{\n  "Authorization": "Bearer token"\n}',
-            defaultValue: "{}"
-        }
+        // {
+        //     type: "text",
+        //     name: "url",
+        //     label: "Endpoint",
+        //     placeholder: "https://api.example.com/endpoint",
+        //     defaultValue: "https://api.example.com/endpoint"
+        // },
+        // {
+        //     type: "textarea",
+        //     name: "body",
+        //     label: "Request Body",
+        //     rows: 5,
+        //     placeholder: '{\n  "key": "value"\n}',
+        //     defaultValue: "{}"
+        // },
+        // {
+        //     type: "checkbox",
+        //     name: "cache",
+        //     label: "Enable Cache",
+        //     defaultValue: true
+        // },
+        // {
+        //     type: "number",
+        //     name: "timeout",
+        //     label: "Timeout (ms)",
+        //     defaultValue: 30000,
+        //     min: 1000,
+        //     max: 120000
+        // },
+        // {
+        //     type: "textarea",
+        //     name: "headers",
+        //     label: "Headers",
+        //     rows: 3,
+        //     placeholder: '{\n  "Authorization": "Bearer token"\n}',
+        //     defaultValue: "{}"
+        // }
     ]
 };
 
@@ -279,20 +315,20 @@ export const databaseConfig = {
             rows: 4,
             placeholder: "Enter SQL query"
         },
-        {
-            type: "checkbox",
-            name: "useTransaction",
-            label: "Use Transaction",
-            defaultValue: false
-        },
-        {
-            type: "textarea",
-            name: "params",
-            label: "Query Parameters",
-            rows: 3,
-            placeholder: '{\n  "id": 1\n}',
-            defaultValue: "{}"
-        }
+        // {
+        //     type: "checkbox",
+        //     name: "useTransaction",
+        //     label: "Use Transaction",
+        //     defaultValue: false
+        // },
+        // {
+        //     type: "textarea",
+        //     name: "params",
+        //     label: "Query Parameters",
+        //     rows: 3,
+        //     placeholder: '{\n  "id": 1\n}',
+        //     defaultValue: "{}"
+        // }
     ]
 };
 
@@ -333,56 +369,56 @@ export const emailConfig = {
             placeholder: "recipient@example.com",
             defaultValue: ""
         },
-        {
-            type: "text",
-            name: "subject",
-            label: "Subject",
-            placeholder: "Email subject",
-            defaultValue: ""
-        },
-        {
-            type: "textarea",
-            name: "body",
-            label: "Body",
-            rows: 5,
-            placeholder: "Email body content",
-            defaultValue: ""
-        },
-        {
-            type: "text",
-            name: "cc",
-            label: "CC",
-            placeholder: "cc@example.com",
-            defaultValue: ""
-        },
-        {
-            type: "text",
-            name: "bcc",
-            label: "BCC",
-            placeholder: "bcc@example.com",
-            defaultValue: ""
-        },
-        {
-            type: "checkbox",
-            name: "isHtml",
-            label: "Send as HTML",
-            defaultValue: false
-        },
-        {
-            type: "select",
-            name: "priority",
-            label: "Priority",
-            defaultValue: "normal",
-            options: ["low", "normal", "high"]
-        },
-        {
-            type: "textarea",
-            name: "attachments",
-            label: "Attachments",
-            rows: 2,
-            placeholder: '["file1.pdf", "file2.jpg"]',
-            defaultValue: "[]"
-        }
+        // {
+        //     type: "text",
+        //     name: "subject",
+        //     label: "Subject",
+        //     placeholder: "Email subject",
+        //     defaultValue: ""
+        // },
+        // {
+        //     type: "textarea",
+        //     name: "body",
+        //     label: "Body",
+        //     rows: 5,
+        //     placeholder: "Email body content",
+        //     defaultValue: ""
+        // },
+        // {
+        //     type: "text",
+        //     name: "cc",
+        //     label: "CC",
+        //     placeholder: "cc@example.com",
+        //     defaultValue: ""
+        // },
+        // {
+        //     type: "text",
+        //     name: "bcc",
+        //     label: "BCC",
+        //     placeholder: "bcc@example.com",
+        //     defaultValue: ""
+        // },
+        // {
+        //     type: "checkbox",
+        //     name: "isHtml",
+        //     label: "Send as HTML",
+        //     defaultValue: false
+        // },
+        // {
+        //     type: "select",
+        //     name: "priority",
+        //     label: "Priority",
+        //     defaultValue: "normal",
+        //     options: ["low", "normal", "high"]
+        // },
+        // {
+        //     type: "textarea",
+        //     name: "attachments",
+        //     label: "Attachments",
+        //     rows: 2,
+        //     placeholder: '["file1.pdf", "file2.jpg"]',
+        //     defaultValue: "[]"
+        // }
     ]
 };
 
@@ -419,19 +455,19 @@ export const delayConfig = {
             min: 0,
             placeholder: "Enter duration"
         },
-        {
-            type: "select",
-            name: "unit",
-            label: "Unit",
-            defaultValue: "milliseconds",
-            options: ["milliseconds", "seconds", "minutes", "hours"]
-        },
-        {
-            type: "checkbox",
-            name: "dynamicDelay",
-            label: "Dynamic Delay (from input)",
-            defaultValue: false
-        }
+        // {
+        //     type: "select",
+        //     name: "unit",
+        //     label: "Unit",
+        //     defaultValue: "milliseconds",
+        //     options: ["milliseconds", "seconds", "minutes", "hours"]
+        // },
+        // {
+        //     type: "checkbox",
+        //     name: "dynamicDelay",
+        //     label: "Dynamic Delay (from input)",
+        //     defaultValue: false
+        // }
     ]
 };
 
@@ -477,25 +513,25 @@ export const conditionConfig = {
             rows: 2,
             placeholder: "{{value}} > 10"
         },
-        {
-            type: "text",
-            name: "trueLabel",
-            label: "True Path Label",
-            defaultValue: "True",
-            placeholder: "Label for true branch"
-        },
-        {
-            type: "text",
-            name: "falseLabel",
-            label: "False Path Label",
-            defaultValue: "False",
-            placeholder: "Label for false branch"
-        },
-        {
-            type: "checkbox",
-            name: "caseSensitive",
-            label: "Case Sensitive",
-            defaultValue: false
-        }
+        // {
+        //     type: "text",
+        //     name: "trueLabel",
+        //     label: "True Path Label",
+        //     defaultValue: "True",
+        //     placeholder: "Label for true branch"
+        // },
+        // {
+        //     type: "text",
+        //     name: "falseLabel",
+        //     label: "False Path Label",
+        //     defaultValue: "False",
+        //     placeholder: "Label for false branch"
+        // },
+        // {
+        //     type: "checkbox",
+        //     name: "caseSensitive",
+        //     label: "Case Sensitive",
+        //     defaultValue: false
+        // }
     ]
 };
