@@ -1,0 +1,47 @@
+.sidebar-grandparent {
+    border: solid red 1px;
+    padding: 10px 1%;
+    /* max-width: 600px; */
+    position: absolute;
+    width: 300px;
+    z-index: 10000000;
+}
+
+.sidebar-parent {
+    border: solid red 1px;
+    padding: 10px 5px;
+}
+
+.tool-button-parent {
+    border: solid red 1px;
+    padding: 10px 5%;
+}
+
+.tool-button-child {
+    border: solid red 1px;
+    padding: 10px 3%;
+    /* width: 101px; */
+}
+
+.tool-button-child>.input {
+    cursor: grab;
+    /* min-width: 80px; */
+    /* height: 60px; */
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    /* background-color: rgb(28, 37, 54); */
+    justify-content: center;
+    flex-direction: column;
+
+    /* Disabled properties visible in DevTools */
+    /* color: #000000; */
+    /* border-radius: 8px; */
+    /* background-color: rgb(28, 37, 54); */
+}
+
+.sidebar_grandparent {
+    width: 200px;
+    z-index: 10000;
+    position: absolute;
+}
