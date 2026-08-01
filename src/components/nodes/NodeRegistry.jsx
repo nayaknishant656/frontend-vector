@@ -69,7 +69,68 @@ import delayConfig from "../../nodes/configs/Api";
 import conditionConfig from "../../nodes/configs/Api";
 
 const NodeRegistry = {
-    input: {
+    microsoft: {
+        id: 'microsoft',
+        type: 'microsoft',
+        selected: false,
+        title: 'Microsoft',
+        nodeComponent: 'MicrosoftNode',
+        description: 'Microsoft 365 / Graph API integration',
+        defaultData: {
+            operation: 'sendEmail',
+            to: '',
+            subject: '',
+            body: '',
+            label: 'Microsoft'
+        },
+        handles: {
+            target: {
+                position: 'Left',
+                id: '{id}-input'
+            },
+            source: {
+                position: 'Right',
+                id: '{id}-output'
+            }
+        },
+        fields: [
+            {
+                type: 'select',
+                name: 'operation',
+                label: 'Operation',
+                defaultValue: 'sendEmail',
+                options: [
+                    'Send Email',
+                    'Create Calendar Event',
+                    'Get User Profile',
+                    'List Emails',
+                    'Create OneDrive File'
+                ]
+            },
+            {
+                type: 'text',
+                name: 'to',
+                label: 'To',
+                defaultValue: '',
+                placeholder: 'recipient@example.com'
+            },
+            {
+                type: 'text',
+                name: 'subject',
+                label: 'Subject',
+                defaultValue: '',
+                placeholder: 'Enter subject'
+            },
+            {
+                type: 'textarea',
+                name: 'body',
+                label: 'Body',
+                defaultValue: '',
+                rows: 5,
+                placeholder: 'Enter message or use {{variables}}'
+            }
+        ]
+    }, input: {
         id: 'input',
         type: 'input',
         selected: false,
