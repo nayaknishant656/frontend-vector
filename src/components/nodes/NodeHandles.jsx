@@ -15,14 +15,12 @@ const NodeHandles = ({
 }) => {
     const elements = [];
 
-    // -------- Process Target Handles (Left side - Inputs) --------
     if (handles.target) {
         const targets = Array.isArray(handles.target)
             ? handles.target
             : [handles.target];
 
         targets.forEach((handle, index) => {
-            // Replace {id} placeholder with actual nodeId
             const handleId = handle.id.replace(/{id}/g, nodeId);
 
             elements.push(
