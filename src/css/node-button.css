@@ -18,9 +18,20 @@
 .node-button {
     border: solid 1px #00000042;
     display: flex;
-    padding: 5px;
+    /* padding: 5px; */
     gap: 10px;
+    margin: 7px 0px;
     border-radius: 0px 7px 13px 15px;
     justify-content: center;
     align-items: center;
+}
+
+.node-button-icon-parent {
+    /* border: solid 1px red; */
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 113px;
+    justify-content: flex-end;
+    padding: 8px;
 }

@@ -1,6 +1,7 @@
 // draggableNode.js
 import './css/node-button.css'
 import MicrosoftIcon from '@mui/icons-material/Microsoft';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
 export const DraggableNode = ({ type, label }) => {
   const onDragStart = (event, nodeType) => {
@@ -30,8 +31,8 @@ export const DraggableNode = ({ type, label }) => {
       // }}
       draggable
     >
-      <span style={{ color: '#000000ff' }}>{label}</span>
-      <MicrosoftIcon />
-    </div>
+      <div className="node-button-icon-parent"> <MicrosoftIcon /> <span style={{ color: '#000000ff' }}>{label}</span>
+        <ControlPointIcon />
+      </div></div>
   );
 };

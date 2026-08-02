@@ -1,5 +1,5 @@
 .sidebar-grandparent {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     padding: 10px 1%;
     /* max-width: 600px; */
     position: absolute;
@@ -8,17 +8,17 @@
 }
 
 .sidebar-parent {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     padding: 10px 5px;
 }
 
 .tool-button-parent {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     padding: 10px 5%;
 }
 
 .tool-button-child {
-    border: solid red 1px;
+    /* border: solid red 1px; */
     padding: 10px 3%;
     /* width: 101px; */
 }
